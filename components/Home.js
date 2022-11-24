@@ -7,7 +7,7 @@ function Home() {
     <div>
       <main className={styles.main}>
         <div className={styles.content1}>
-          <img className={styles.logo1}src="neke1.jpg" alt="fondecran" />
+          <img className={styles.logo1}src="Neke1.jpg" alt="fondecran" />
       </div>
       <div className={styles.content}>
       <div>
