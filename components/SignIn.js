@@ -1,18 +1,30 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { login } from '../reducers/user';
-import styles from '../styles/SignIn.module.css';
-import {Modal} from 'antd';
-import Link from 'next/link';
+import { useEffect, useState, React } from "react";
+import styles from '../styles/Home.module.css';
+//import { useDispatch, useSelector } from 'react-redux';
+import ReactModal from 'react-modal';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+//import styles from '../styles/Login.module.css';
 
-function SignIn(){
-    const user = useSelector((state) => state.user.value);
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [signInUsername, setSignInUsername] = useState('');
-	const [signInPassword, setSignInPassword] = useState('');
+function SignIn() {
 
-const handleConnection = () => {
+//const dispatch = useDispatch();
+//const user = useSelector((state) => state.user.value);
+const [signInUsername, setSignInUsername] = useState('');
+const [signInPassword, setSignInPassword] = useState('');
 
+const customStyles = {
+    content: {
+      top: '10%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, 50%)',
+    },
+  };
+
+  const handleConnection = () => {
     fetch('http://localhost:3000/users/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -23,38 +35,61 @@ const handleConnection = () => {
                 dispatch(login({ username: signInUsername, token: data.token }));
                 setSignInUsername('');
                 setSignInPassword('');
-                setIsModalVisible(false)
             }
         });
 };
 
-const showModal = () => {
-  setIsModalVisible(!isModalVisible);
-};
+function openModal() {
+    setIsOpen(true);
+  }
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-let modalContent;
-if (!user.isConnected) {
-    modalContent = (
-        <div className={styles.registerContainer}>
-                <img className={styles.logo} src="logo-blanc.png"/>
-                <h2>Connect to Hackatweet</h2>
-                <input type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
-                <input type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
-                <button id="connection" onClick={() => handleConnection()}><Link href="/lasttweets"><span className={styles.link}>Sign In</span></Link></button>
-           
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+  
+  function openModalIn() {
+    setIsOpenIn(true);
+  }
+  let subtitleIn;
+  const [modalIsOpenIn, setIsOpenIn] = useState(false);
+
+  function afterOpenModalIn() {
+    // references are now sync'd and can be accessed.
+  }
+
+  function closeModalIn() {
+    setIsOpenIn(false);
+  }
+
+  let modalContentSignIn = (
+    <div>
+      <div className={styles.modal} >
+      <button className={styles.buttonX} onClick={closeModalIn}>X</button>
+      <img className={styles.modallogo} src="logo-blanc.png"/>
+        <p className={styles.modaltitle}>Connect to Hackatweet</p>
+        <input className={styles.input} type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
+        <input className={styles.input} type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+        <button className={styles.modalsign} id="register" onClick={() => handleConnection()}>Sign In</button>
+      </div>
+    </div>
+  );
+
+  return (
+
+        <div>
+            <button onClick={openModalIn}className={styles.buttonIn}>Sign in</button>
+                <Modal isOpen={modalIsOpenIn} onAfterOpen={afterOpenModalIn} onRequestClose={closeModalIn} className={styles.modalcontainer} contentLabel="Example ModalIn">
+                 {modalContentSignIn}
+                </Modal>
         </div>
-    );
-}
-
-return (
-    <>
-    {isModalVisible && <div id="react-modals">
-		<Modal getContainer="#react-modals" className={styles.modal} visible={isModalVisible} closable={false} footer={null}>
-					{modalContent}
-		</Modal>
-	</div>}
-    </>
-);
+      
+  );
 }
 
 export default SignIn;

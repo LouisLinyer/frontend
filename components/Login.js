@@ -1,38 +1,43 @@
 import React from "react";
-import styles from '../styles/Login.module.css';
+import styles from '../styles/Home.module.css';
+import Modal from 'react-modal';
+import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
-
-
 function Login() {
-  
+  const customStyles = {
+    content: {
+      top: '10%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, 50%)',
+    },
+  };
+
   return (
-    <div className={styles.main}>
-      
-        <div className={styles.contentgauche}>
-          <img className={styles.logo1} src="Neke1.jpg" alt="fondecran" />
-        </div>
-        <div className={styles.contentdroit}>
-          <div>
+    <div>
+      <main className={styles.main}>
+        <div className={styles.content1}>
+          <img className={styles.logo1}src="neke1.jpg" alt="fondecran" />
+      </div>
+      <div className={styles.content}>
+      <div>
           <img className={styles.logo} src="logo-blanc.png"/>
-          </div>
-          <div>
           <h1 className={styles.title}>See what's <br>
           </br>happening</h1>
-          </div>
-          <div>
-          <h2>Join Hackatweat today.</h2>
-          </div>
-          <div>
-            <button className={styles.buttonUp}>Sign Up</button>
-          </div>
+          <h3 className={styles.content1}>Join Hackatweat today.</h3>
+          <SignUp/>
            <p className={styles.content}>Already have on account?</p>
-           <button className={styles.buttonIn} onClick = {() => <SignIn />} >Sign in</button>
-           
-        </div>
+          <SignIn />
+          </div>
       
+      </div>
+      </main>
     </div>
   );
 }
 
 export default Login;
+
