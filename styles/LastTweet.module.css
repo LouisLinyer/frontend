@@ -1,0 +1,56 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .contentgauche {
+    min-height: 100vh;
+    width: 25%;
+    background-color: black;
+  }
+
+  .buttontweet {
+            width: 8vw;
+        padding: 6px;
+        border-radius: 20px;
+        color: #ffffff;
+        background-color: #1161F5;
+        font-size: 12px;
+      
+  }
+
+.compteur {
+    display: flex;
+    flex-direction: row;
+}
+
+
+  .contentmilieu {
+    min-height: 100vh;
+    width: 50%;
+    background-color: black;
+    color: white;
+  }
+  
+  .contentdroit {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5vw;
+    background-color: black;
+    min-height: 100vh;
+    width: 25%;
+    color: white;
+  }
+  
+  
+  .logo {
+    height: 8vh;
+    padding-top: 3vh;
+  }
+  
+
+  
