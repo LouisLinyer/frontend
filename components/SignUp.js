@@ -76,8 +76,10 @@ let modalContentSignUp = (
             <p className={styles.modaltitle}>Create your Hackatweet account</p>
             <input className={styles.input} type="text" placeholder="Firstname" id="signUpFirstName" onChange={(e) => setSignUpFirstName(e.target.value)} value={signUpFirstName} />
             <input className={styles.input} type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
-            <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} /><Link href="/lasttweets">
-            <button className={styles.modalsign} id="register" onClick={() => handleRegister()}>Sign Up</button></Link>
+            <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
+            <Link href="/lasttweets">
+            <button className={styles.modalsign} id="register" onClick={() => handleRegister()}>Sign Up</button>
+            </Link>
       </div>
     </div>
   );

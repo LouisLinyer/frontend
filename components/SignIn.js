@@ -89,7 +89,7 @@ function openModal() {
 
         <div>
             <button onClick={openModalIn}className={styles.buttonIn}>Sign in</button>
-                <Modal isOpen={modalIsOpenIn} onAfterOpen={afterOpenModalIn} onRequestClose={closeModalIn} className={styles.modalcontainer} contentLabel="Example ModalIn">
+                <Modal isOpen={modalIsOpenIn} ariaHideApp={false} onAfterOpen={afterOpenModalIn} onRequestClose={closeModalIn} className={styles.modalcontainer} contentLabel="Example ModalIn">
                  {modalContentSignIn}
                 </Modal>
         </div>

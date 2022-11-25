@@ -65,6 +65,24 @@
     padding-top: 3vh;
   }
 
+  .logo2 {
+    height: 6vh;
+    padding-bottom: 2vh;
+    padding-right: 1vw;
+  }
+
+  .userlogout{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-top: 75vh;
+  }
+
+.firstnamegauche{
+  color: white;
+  padding-right: 1vw;
+}
+
   .home {
     border-bottom: solid 0.1vw rgb(149, 148, 148);
     padding-bottom: 2vh;
@@ -97,5 +115,13 @@
     padding-bottom: 2vh;
   }
   
-
+  .buttonlogout{
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 5vw;
+    height: 3vh;
+    color: white;
+    border-radius: 18px;
+    border: white solid 1px;
+  }
   
