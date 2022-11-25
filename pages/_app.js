@@ -5,7 +5,7 @@ import { configureStore} from '@reduxjs/toolkit';
 import user from '../reducers/user';
 import tweet from '../reducers/tweet';
 import hashtag from '../reducers/hashtag';
- 
+import LastTweets from '../components/LastTweets';
 
 const store = configureStore({
   reducer: {user, tweet, hashtag},

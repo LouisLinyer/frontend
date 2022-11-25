@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import Link from 'next/link';
 import Tweet from "./Tweet";
 //import styles from '../styles/Login.module.css';
 
@@ -37,7 +38,7 @@ const customStyles = {
                 setSignInUsername('');
                 setSignInPassword('');
             }
-            return <Tweet />
+            
         });
 };
 
@@ -77,7 +78,9 @@ function openModal() {
         <p className={styles.modaltitle}>Connect to Hackatweet</p>
         <input className={styles.input} type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
         <input className={styles.input} type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+        <Link href="/lasttweets">
         <button className={styles.modalsign} id="register" onClick={() => handleConnection()}>Sign In</button>
+        </Link>
       </div>
     </div>
   );

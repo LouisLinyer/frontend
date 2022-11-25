@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import Link from 'next/link';
 import Tweet from './Tweet';
 import {login} from '../reducers/user';
+import LastTweets from './LastTweets';
 //import styles from '../styles/Login.module.css';
 
 function SignUp() {
@@ -43,10 +44,13 @@ const handleRegister = () => {
                     setSignUpUsername('');
                     setSignUpPassword('');
                 }
-                return <Tweet />
+                
             });
+            return <LastTweets/>
     };
-    //const dispatch = useDispatch();
+
+ //<Link href="/lasttweets.js">Articles></Link>   
+
     const user = useSelector((state) => state.user.value);
 
 function openModal() {
@@ -72,15 +76,15 @@ let modalContentSignUp = (
             <p className={styles.modaltitle}>Create your Hackatweet account</p>
             <input className={styles.input} type="text" placeholder="Firstname" id="signUpFirstName" onChange={(e) => setSignUpFirstName(e.target.value)} value={signUpFirstName} />
             <input className={styles.input} type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
-            <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
-            <button className={styles.modalsign} id="register" onClick={() => handleRegister()}>Sign Up</button>
+            <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} /><Link href="/lasttweets">
+            <button className={styles.modalsign} id="register" onClick={() => handleRegister()}>Sign Up</button></Link>
       </div>
     </div>
   );
   return (
     <div className={styles.content}>
         <button onClick={openModal} className={styles.buttonUp}>Sign Up</button>
-        <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} className={styles.modalcontainer} contentLabel="Example Modal">
+        <Modal isOpen={modalIsOpen} ariaHideApp={false} onAfterOpen={afterOpenModal} onRequestClose={closeModal} className={styles.modalcontainer} contentLabel="Example Modal">
         {modalContentSignUp}
       </Modal>
     </div>
