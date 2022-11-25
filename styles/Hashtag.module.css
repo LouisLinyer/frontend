@@ -75,11 +75,12 @@
     padding-left: 4vh;
   }
 
-  .whatsupinput {
+  .hashtaginput {
     width: 40vw;
+    height: 5vh;
     color:rgb(149, 148, 148);
-    background-color: black;
-    border-bottom: solid 0.1vw rgb(149, 148, 148);
+    background-color: rgb(24, 24, 24);
+    border-radius: 8px;
   }
 
   #comment {
