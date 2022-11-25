@@ -1,19 +1,23 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, React } from "react";
 import styles from '../styles/Home.module.css';
-//import { useDispatch, useSelector } from 'react-redux';
 import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import Link from 'next/link';
+import Tweet from './Tweet';
+import {login} from '../reducers/user';
 //import styles from '../styles/Login.module.css';
 
 function SignUp() {
 
-  //const dispatch = useDispatch();
-    //const user = useSelector((state) => state.user.value);
+const dispatch = useDispatch();
+
 
   const [signUpUsername, setSignUpUsername] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
   const [signUpFirstName, setSignUpFirstName] = useState('');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
 const customStyles = {
   content: {
@@ -30,32 +34,33 @@ const handleRegister = () => {
     fetch('http://localhost:3000/users/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ firstName:signUpFirstName, username: signUpUsername, password: signUpPassword }),
+            body: JSON.stringify({ firstname:signUpFirstName, username: signUpUsername, password: signUpPassword }),
     }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    dispatch(login({ firstName:signUpFirstName, username: signUpUsername, token: data.token }));
+                    dispatch(login({ firstname:signUpFirstName, username: signUpUsername, token: data.token }));
                     setSignUpFirstName('');
-          setSignUpUsername('');
+                    setSignUpUsername('');
                     setSignUpPassword('');
                 }
+                return <Tweet />
             });
     };
     //const dispatch = useDispatch();
-    //const user = useSelector((state) => state.user.value);
+    const user = useSelector((state) => state.user.value);
 
 function openModal() {
-    setIsOpen(true);
+    setModalIsOpen(true);
   }
   let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
+  
 
 function afterOpenModal() {
     // references are now sync'd and can be accessed.
   }
 
 function closeModal() {
-    setIsOpen(false);
+    setModalIsOpen(false);
   }
 let modalContentSignUp = (
     <div>
@@ -65,10 +70,10 @@ let modalContentSignUp = (
             </div>
             <img className={styles.modallogo} src="logo-blanc.png"/>
             <p className={styles.modaltitle}>Create your Hackatweet account</p>
-            <input className={styles.input} type="text" placeholder="Firsname" id="signUpFirstName" onChange={(e) => setSignUpFirstName(e.target.value)} value={signUpFirstName} />
+            <input className={styles.input} type="text" placeholder="Firstname" id="signUpFirstName" onChange={(e) => setSignUpFirstName(e.target.value)} value={signUpFirstName} />
             <input className={styles.input} type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
             <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
-            <button className={styles.modalsign}id="register" onClick={() => handleRegister()}>Sign Up</button>
+            <button className={styles.modalsign} id="register" onClick={() => handleRegister()}>Sign Up</button>
       </div>
     </div>
   );

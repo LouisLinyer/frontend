@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import Tweet from "./Tweet";
 //import styles from '../styles/Login.module.css';
 
 function SignIn() {
@@ -36,6 +37,7 @@ const customStyles = {
                 setSignInUsername('');
                 setSignInPassword('');
             }
+            return <Tweet />
         });
 };
 
