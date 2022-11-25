@@ -11,10 +11,11 @@
     min-height: 100vh;
     width: 25%;
     background-color: black;
+
   }
 
   .buttontweet {
-            width: 8vw;
+        width: 8vw;
         padding: 6px;
         border-radius: 20px;
         color: #ffffff;
@@ -34,6 +35,10 @@
     width: 50%;
     background-color: black;
     color: white;
+    border-right: solid 0.1vw rgb(149, 148, 148);
+    border-left: solid 0.1vw rgb(149, 148, 148);
+    
+    
   }
   
   .contentdroit {
@@ -50,6 +55,23 @@
   .logo {
     height: 8vh;
     padding-top: 3vh;
+  }
+
+  .home {
+    border-bottom: solid 0.1vw rgb(149, 148, 148);
+    padding-bottom: 2vh;
+    padding-left: 1vw;
+  }
+
+  .whatsup {
+    padding-left: 4vh;
+  }
+
+  .whatsupinput {
+    width: 40vw;
+    color:rgb(149, 148, 148);
+    background-color: black;
+    border-bottom: solid 0.1vw rgb(149, 148, 148);
   }
   
 

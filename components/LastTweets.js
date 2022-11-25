@@ -15,13 +15,15 @@ function LastTweet() {
         </div>
         <div className={styles.contentmilieu}>
           
-          <div>
+          <div className={styles.home}>
           <h1 className={styles.title}>Home</h1>
+          <div className={styles.whatsup}>
+          <input  className={styles.whatsupinput} type="text" placeholder="What's up?"></input>
           </div>
-          <input className={styles} type="text" placeholder="What's up?"></input>
           <div className={styles.compteur}>
             <p>0/280</p>
             <button className={styles.buttontweet}>Tweet</button>
+          </div>
           </div>
            <p className={styles.content}>Already have on account?</p>
            <button className={styles.buttonIn} onClick = {() => <SignIn />} >Sign in</button>
